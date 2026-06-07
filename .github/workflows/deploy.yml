@@ -46,7 +46,7 @@ jobs:
       - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 54.166.215.24
+          host: 100.54.241.215
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
@@ -95,7 +95,7 @@ jobs:
           sudo apt-get install -y jq
           
           # 2. Reemplazar la IP en el campo host y en el campo raw de la URL
-          jq '.item[0].request.url.host = ["54", "166", "215", "24"] | .item[0].request.url.raw = "http://54.166.215.24:8080"' Semana3/coleccion.json > temp.json && mv temp.json Semana3/coleccion.json
+          jq '.item[0].request.url.host = ["100", "54", "241", "215"] | .item[0].request.url.raw = "http://100.54.241.215:8080"' Semana3/coleccion.json > temp.json && mv temp.json Semana3/coleccion.json
           
           # 3. Mostrar el resultado para verificar en los logs
           echo "=== JSON FINAL (IP ACTUALIZADA) ==="
